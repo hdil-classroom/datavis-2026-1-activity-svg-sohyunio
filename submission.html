@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -11,13 +11,65 @@
 			font-size: 24px;
 		}
 
-		#visualization-activity {
-			width: 600px;
-			height: 500px;
+		body {
+			font-family: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
 		}
 
-		/* YOUR CSS CODE WILL GO HERE */
+		#visualization-activity {
+			width: 640px;
+			height: 560px;
+		}
 
+		.axis {
+			stroke: black;
+			stroke-width: 2;
+		}
+
+		.bar {
+			fill: steelblue;
+		}
+
+		.line1 {
+			fill: #1259a5;
+		}
+
+		.line2 {
+			fill: #08a64d;
+		}
+
+		.line3 {
+			fill: #ef7d1a;
+		}
+
+		.label {
+			font-size: 12px;
+			text-anchor: middle;
+		}
+
+		.tick {
+			stroke: #666;
+			stroke-width: 1;
+		}
+
+		.tick-label {
+			font-size: 11px;
+			fill: #333;
+			text-anchor: end;
+		}
+
+		.axis-title-x {
+			font-size: 16px;
+			text-anchor: middle;
+		}
+
+		.axis-title-y {
+			font-size: 16px;
+			text-anchor: middle;
+		}
+
+		.legend-text {
+			font-size: 14px;
+		}
 
 	</style>
 </head>
@@ -28,10 +80,64 @@
 	</h1>
 
 	<svg id="visualization-activity">
-		<!-- YOUR SVG CODE WILL GO HERE -->
-		<line x1="50" y1="450" x2="550" y2="450">
-		<rect x="70" y="150" width="50" height="300" class="bar"></rect>
-		<text x="95" y="470" class="label">Hongdae</text>	
+		<!-- Axes -->
+		<line x1="50" y1="450" x2="550" y2="450" class="axis"></line>
+		<line x1="50" y1="50" x2="50" y2="450" class="axis"></line>
+
+		<!-- Y-axis ticks and labels -->
+		<line x1="44" y1="450" x2="50" y2="450" class="tick"></line>
+		<text x="40" y="454" class="tick-label">0</text>
+		<line x1="44" y1="400" x2="50" y2="400" class="tick"></line>
+		<text x="40" y="404" class="tick-label">10,000</text>
+		<line x1="44" y1="350" x2="50" y2="350" class="tick"></line>
+		<text x="40" y="354" class="tick-label">20,000</text>
+		<line x1="44" y1="300" x2="50" y2="300" class="tick"></line>
+		<text x="40" y="304" class="tick-label">30,000</text>
+		<line x1="44" y1="250" x2="50" y2="250" class="tick"></line>
+		<text x="40" y="254" class="tick-label">40,000</text>
+		<line x1="44" y1="200" x2="50" y2="200" class="tick"></line>
+		<text x="40" y="204" class="tick-label">50,000</text>
+		<line x1="44" y1="150" x2="50" y2="150" class="tick"></line>
+		<text x="40" y="154" class="tick-label">60,000</text>
+		<line x1="44" y1="100" x2="50" y2="100" class="tick"></line>
+		<text x="40" y="104" class="tick-label">70,000</text>
+		<line x1="44" y1="50" x2="50" y2="50" class="tick"></line>
+		<text x="40" y="54" class="tick-label">80,000</text>
+
+		<!-- Bars (match legend colors) -->
+		<rect x="60" y="85" width="50" height="365" class="bar line2"></rect>
+		<text x="85" y="470" class="label">홍대입구</text>
+
+		<rect x="140" y="135" width="50" height="315" class="bar line2"></rect>
+		<text x="165" y="470" class="label">잠실(송파구청)</text>
+
+		<rect x="220" y="180" width="50" height="270" class="bar line3"></rect>
+		<text x="245" y="470" class="label">고속터미널</text>
+
+		<rect x="300" y="245" width="50" height="205" class="bar line1"></rect>
+		<text x="325" y="470" class="label">서울역</text>
+
+		<rect x="380" y="255" width="50" height="195" class="bar line2"></rect>
+		<text x="405" y="470" class="label">신림</text>
+
+		<rect x="460" y="260" width="50" height="190" class="bar line2"></rect>
+		<text x="485" y="470" class="label">신도림</text>
+
+		<!-- Axis titles -->
+		<text x="300" y="530" class="axis-title-x">Station Name</text>
+		<text x="10" y="250" transform="rotate(-90, 10, 250)" class="axis-title-y">Entry Count</text>
+
+		<!-- Legend -->
+		<g>
+			<rect x="535" y="70" width="12" height="12" class="line1"></rect>
+			<text x="552" y="80" class="legend-text">Line 1</text>
+
+			<rect x="535" y="90" width="12" height="12" class="line2"></rect>
+			<text x="552" y="100" class="legend-text">Line 2</text>
+
+			<rect x="535" y="110" width="12" height="12" class="line3"></rect>
+			<text x="552" y="120" class="legend-text">Line 3</text>
+		</g>
 	</svg>
 
 </body>
